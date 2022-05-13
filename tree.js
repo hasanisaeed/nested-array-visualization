@@ -9,14 +9,14 @@ class Node {
     }
 }
 
-/**********
+/* ===== Sample Tree =====
 
 A-->B
     C-->D
     E-->F
 G-->H
 
-***********/
+==========================*/
 
 A = new Node('A', 1)
 B = new Node('B', 2)
@@ -28,12 +28,7 @@ F = new Node('F', 6)
 G = new Node('G', 7)
 H = new Node('H', 8)
 
-
-
-
-
 categories = [A,[B,C,[D],E,[F]],G,[H]]
-
 
 function makeList(array) {
     // Create the list element:
