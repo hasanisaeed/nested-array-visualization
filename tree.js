@@ -1,12 +1,7 @@
 class Node {
-    constructor(title, id, parent){
+    constructor(title, id){
         this.title = title
         this.id = id
-        this.parent = parent 
-    }
-
-    setParent(parent){
-        this.parent = parent
     }
 
     getTitle(){
@@ -23,15 +18,15 @@ G-->H
 
 ***********/
 
-A = new Node('A', 1, null)
-B = new Node('B', 2, 1)
-C = new Node('C', 3, 1)
-D = new Node('D', 4, 3)
-E = new Node('E', 5, 1)
-F = new Node('F', 6, 5)
+A = new Node('A', 1)
+B = new Node('B', 2)
+C = new Node('C', 3)
+D = new Node('D', 4)
+E = new Node('E', 5)
+F = new Node('F', 6)
 
-G = new Node('G', 7, null)
-H = new Node('H', 8, 7)
+G = new Node('G', 7)
+H = new Node('H', 8)
 
 
 
@@ -51,13 +46,13 @@ function makeList(array) {
             list.appendChild(makeList(array[i]) );
         else
 	    {       
-	        // Set its contents:
+	        // Set `title` <li> ##### </li>
             item.appendChild(document.createTextNode(array[i].getTitle()));
 
             // Add it to the list: 
             list.appendChild(item );
         
-            item.addEventListener('click',()=>{console.log('>> TEST');});
+            item.addEventListener('click',()=>{console.log('>> Clicked!');});
     	}
     }
 
