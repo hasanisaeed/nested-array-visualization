@@ -14,20 +14,6 @@ class Node {
     }
 }
 
-class Row { 
-
-    constructor() { 
-        this.nodes = new Array()
-    }
-    appendNode(node){
-        this.nodes.push(node)
-    }
-
-    getNodes(){
-        return this.nodes
-    }
-}
-
 /**********
 
 A-->B
@@ -36,30 +22,22 @@ A-->B
 G-->H
 
 ***********/
+
 A = new Node('A', 1, null)
 B = new Node('B', 2, 1)
 C = new Node('C', 3, 1)
-// D = new Node('D', 4, 3)
-// E = new Node('E', 5, 1)
+D = new Node('D', 4, 3)
+E = new Node('E', 5, 1)
+F = new Node('F', 6, 5)
 
-G = new Node('G', 6, null)
-// H = new Node('H', 7, 6)
-
-
-
-row = new Row()
-row.appendNode(A)
-
-row.appendNode([B,C])
-row.appendNode(G)
+G = new Node('G', 7, null)
+H = new Node('H', 8, 7)
 
 
-console.log(row); 
 
-function getTitle(item) {
-    return item.title
-}
-arr = row.getNodes() 
+
+
+categories = [A,[B,C,[D],E,[F]],G,[H]]
 
 
 function makeList(array) {
@@ -70,23 +48,21 @@ function makeList(array) {
         var item = document.createElement('li'); 
 
         if(Array.isArray(array[i]))
-        list.appendChild(makeList(array[i]) );
+            list.appendChild(makeList(array[i]) );
         else
-{        // Set its contents:
-        item.appendChild(document.createTextNode(array[i].getTitle()));
+	    {       
+	        // Set its contents:
+            item.appendChild(document.createTextNode(array[i].getTitle()));
 
-        // Add it to the list: 
-        list.appendChild(item );
-        console.log(array[i].getTitle());
-        item.addEventListener('click',()=>{console.log('>> TEST');});
-    }
+            // Add it to the list: 
+            list.appendChild(item );
+        
+            item.addEventListener('click',()=>{console.log('>> TEST');});
+    	}
     }
 
     // Finally, return the constructed list:
     return list;
 }
 
-// Add the contents of options[0] to #foo:
-document.getElementById('category').appendChild(makeList(arr));
-
-// document.getElementById("category").innerHTML = list;
+document.getElementById('category').appendChild(makeList(categories));
