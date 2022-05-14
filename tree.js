@@ -13,7 +13,7 @@ class Node {
 
 A-->B
     C-->D
-    E-->F
+    E-->F-->M
 G-->H
 
 ==========================*/
@@ -24,11 +24,12 @@ C = new Node('C', 3)
 D = new Node('D', 4)
 E = new Node('E', 5)
 F = new Node('F', 6)
+M = new Node('M', 9)
 
 G = new Node('G', 7)
 H = new Node('H', 8)
 
-categories = [A,[B,C,[D],E,[F]],G,[H]]
+categories = [A,[B,C,[D],E,[F,[M]]],G,[H]]
 
 function makeList(array) {
     // Create the list element:
